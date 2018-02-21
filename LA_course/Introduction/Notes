@@ -1,0 +1,27 @@
+PUPPET
+- declarative language
+- desired end state of nodes
+- code written inside classes, applied to nodes
+
+TEST PUPPET CODE:
+RSpec: Testing puppet code
+Beaker: testing Serverspec, spin up a node and test the node
+- Use Ruby to exted Puppet modules
+
+MODULES: forge.puppet.com
+Ex. Search for Apache module
+
+CATALOG:
+- Describes the desired state of a node
+  - Can contain dependencies
+- Compiled version of DSL from the Puppet Master
+- Stored in PuppetDB
+
+SELinux:
+- Set SELinux to permessive
+
+$vi /etc/selinux/config
+SELINUX=permissive
+
+REBOOT the instance
+-> NOW it would be able to start Puppet

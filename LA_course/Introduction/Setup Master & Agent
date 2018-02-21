@@ -1,0 +1,46 @@
+- Using Puppet Enterprise Master Installer
+- Installation flags
+  -c to use a pe.conf file to configure Puppet server
+  -D for debugging
+  -h for help
+  -q noting will be displayed
+  -y yes to all
+
+- pe.conf to declare parameters and values needed to install and configure Puppet
+- At installation completed file would be: /etc/puppetlabs/enterprise/conf.d
+
+- Puppet Enterprise binaries are: /opt/puppetlabs
+- Exec binaries are in /opt/puppetlabs/bin and /opt/puppetlabs/sbin
+- Installer automatically creates symlinks in /usr/local/bin
+
+CODE and Data Directories:
+- R10K: /etc/puppetlabs/r10k
+- Environments: /etc/puppetlabs/code/environments
+- Modules: main directory for pupper modules (only MASTER)
+- Manifests: Contains the main starting point for catalog compilation (MASTER)
+- SSL: Contains all node's certificate infrastructure (all nodes)
+   /etc/puppetlabs/puppet/ssl
+
+PORTS:
+- 3000: web-based installer of Puppet Master
+- 8140: port on which Master and Agents communicate
+- 61613: used by MCollective for orchestration requests by Puppet agents
+- 443: web port to access Puppet Enterprise Console
+- 5432: PostgreSQL run on this port, used by PuppetDB in a split stack configuration
+- 8081: PuppetDB traffic/requests PORTS
+- 8142: used by orchestration services to accept inbound traffic/responses from the Puppet agents
+
+Puppet Enterprise services:
+- are installed in /usr/lib/systemd/system
+- pe-activemq: message server,runs on master
+- pe-console-services
+- pe-puppetserver
+- pe-nginx
+- mcollective: orchestration daemon
+- pe-puppetdb and pe-postegresql
+
+LOGS:
+
+- master: /var/log/puppetlabs/puppetserver
+- agents: /var/log/messages  OR  /var/log/system.log
+- /var/log/puppetlabs/(installer/puppetdb/postegresql)
